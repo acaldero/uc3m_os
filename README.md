@@ -18,17 +18,17 @@
       </ul></td>
   </tr>
   <tr><td>2</td>
-      <td>Introducción a los sistemas operativos</td>
+      <td>Introduction to operating systems</td>
       <td><ul>
       </ul></td>
   </tr>
   <tr><td>3</td>
-      <td>Servicios del Sistema Operativo </td>
+      <td>Operating System Services</td>
       <td><ul>
       </ul></td>
   </tr>
   <tr><td>4</td>
-      <td>Introducción a la gestión de procesos</td>
+      <td>Introduction to process management</td>
       <td><ul>
       </ul></td>
   </tr>
@@ -44,7 +44,7 @@
       </ul></td>
   </tr>
   <tr><td>7</td>
-      <td>Comunicación entre procesos</td>
+      <td>Communication among processes</td>
       <td><ul>
       </ul></td>
   </tr>
@@ -54,7 +54,7 @@
       </ul></td>
   </tr>
   <tr><td>9</td>
-      <td>Concurrencia</td>
+      <td>Concurrency</td>
       <td><ul>
         <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w9-concurrency-introduction.pdf">lesson_w9-concurrency-introduction.pdf</a> </li>
         <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w10-concurrency-posix.pdf">lesson_w10-concurrency-posix.pdf</a> </li>
@@ -62,7 +62,7 @@
       </ul></td>
   </tr>
   <tr><td>10</td>
-      <td>Sistema de ficheros</td>
+      <td>File Systems</td>
       <td><ul>
       </ul></td>
   </tr>
