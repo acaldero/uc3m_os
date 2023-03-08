@@ -35,6 +35,7 @@
   <tr><td>5</td>
       <td>Process scheduling</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w5-scheduling.pdf">lesson_w5-scheduling.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>6</td>
