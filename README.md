@@ -46,6 +46,8 @@
   <tr><td>7</td>
       <td>Communication among processes</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w7a-signals.pdf">lesson_w7a-signals.pdf</a> </li>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w7b-pipes.pdf">lesson_w7b-pipes.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>8</td>
