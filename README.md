@@ -41,6 +41,7 @@
   <tr><td>6</td>
       <td>Process and threads</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w6-threads.pdf">slides/lesson_w6-threads.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>7</td>
