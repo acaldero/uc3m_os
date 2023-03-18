@@ -41,7 +41,7 @@
   <tr><td>6</td>
       <td>Process and threads</td>
       <td><ul>
-        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w6-threads.pdf">slides/lesson_w6-threads.pdf</a> </li>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w6-threads.pdf">lesson_w6-threads.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>7</td>
@@ -67,6 +67,7 @@
   <tr><td>10</td>
       <td>File Systems</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w12-sf-files.pdf">lesson_w12-sf-files.pdf</a> </li>
       </ul></td>
   </tr>
  </table>
