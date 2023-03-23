@@ -25,6 +25,7 @@
   <tr><td>3</td>
       <td>Operating System Services</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w3-os-services.pdf">lesson_w3-os-services.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>4</td>
