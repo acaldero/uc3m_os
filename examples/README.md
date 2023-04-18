@@ -7,7 +7,7 @@
     **Example**: Programming a main function that creates 5 threads that prints "Hello world from thread #<thread id>!\n" and wait for all those threads.
  
     **Code**
-      * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w06_threads/ths_creatjoin.c">ths_creatjoin.c</a>
+      * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w06_threads/ths_creatjoin.c">ths_creatjoin.c</a>
 
     **Compile and execute**
     ```
@@ -21,8 +21,8 @@
    **Example**: Programming an example of race condition between two threads.
 
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/race.c">race.c</a>
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/race_solved.c">race_solved.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/race.c">race.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/race_solved.c">race_solved.c</a>
 
    **Compile and execute**
    ```
@@ -33,8 +33,8 @@
    **Example**: Programming an example of interlocking between two threads.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/interlock.c">interlock.c</a>
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/interlock_solved.c">interlock_solved.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/interlock.c">interlock.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/interlock_solved.c">interlock_solved.c</a>
 
    **Compile and execute**
    ```
@@ -45,7 +45,7 @@
    **Example**: Programming an example of synchronize between main thread and the pthread_create threads.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/sync_child_mnc.c">sync_child_mnc.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/sync_child_mnc.c">sync_child_mnc.c</a>
 
    **Compile and execute**
    ```
@@ -57,7 +57,7 @@
    **Example**: Programming an example of producer-consumer (bounded buffer) between two threads using semaphores.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/p-c_sem.c">p-c_sem.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/p-c_sem.c">p-c_sem.c</a>
 
    **Compile and execute**
    ```
@@ -68,7 +68,7 @@
    **Example**: Programming an example of reader-writer between two threads using semaphores.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/r-w_sem.c">r-w_sem.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/r-w_sem.c">r-w_sem.c</a>
 
    **Compile and execute**
    ```
@@ -79,7 +79,7 @@
    **Example**: Programming an example of producer-consumer (bounded buffer) between two threads using mutex + conditions.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/p-c_mnc.c">p-c_mnc.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/p-c_mnc.c">p-c_mnc.c</a>
 
    **Compile and execute**
    ```
@@ -90,7 +90,7 @@
    **Example**: Programming an example of reader-writer between two threads using mutex + conditions.
  
    **Code**
-     * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w10_cns/r-w_mnc.c">r-w_mnc.c</a>
+     * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w10_cns/r-w_mnc.c">r-w_mnc.c</a>
 
    **Compile and execute**
    ```
@@ -104,9 +104,9 @@
    **Statement 1**: Programming a main function that simulates one server that sequentially receive requests and treat them.
 
    **Code**
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.h">request.h</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.c">request.c</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/1_sequential.c">1_sequential.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.h">request.h</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.c">request.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/1_sequential.c">1_sequential.c</a>
 
    **Compile and execute**
    ```
@@ -118,9 +118,9 @@
    **Statement 2**: Programming a main function that simulates one server that receive requests, create a process (fork) and the child process treat each associated request.
 
    **Code**
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.h">request.h</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.c">request.c</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/1_sequential.c">2_fork.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.h">request.h</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.c">request.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/2_fork.c">2_fork.c</a>
 
    **Compile and execute**
    ```
@@ -132,9 +132,9 @@
    **Statement 3**: Programming a main function that simulates one server that receive requests, create a thread and the child thread treat each associated request.
 
    **Code**
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.h">request.h</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.c">request.c</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/1_sequential.c">3_threads_ondemand.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.h">request.h</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.c">request.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/3_threads_ondemand.c">3_threads_ondemand.c</a>
 
    **Compile and execute**
    ```
@@ -146,9 +146,9 @@
    **Statement 4**: Programming a main function that simulates one server that create several theads that wait in a condition, receive requests, signal one of the pre-created thread and the child thread treat each associated request (then go to wait again).
 
    **Code**
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.h">request.h</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/request.c">request.c</a>
-    * <a href="https://github.com/acaldero/labs/blob/main/GII_Operating_System/w11_servers/1_sequential.c">4_threads_pool.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.h">request.h</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/request.c">request.c</a>
+    * <a href="https://github.com/acaldero/uc3m_os/blob/main/examples/w11_servers/4_threads_pool.c">4_threads_pool.c</a>
 
    **Compile and execute**
    ```

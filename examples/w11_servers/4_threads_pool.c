@@ -30,54 +30,54 @@
 request_t  buffer[MAX_BUFFER];
 
 
-int  n_elementos  = 0;
+int  n_elements  = 0;
 int  ha_arrancado = 0;
 int  fin = 0;
 
 pthread_mutex_t  mutex;
-pthread_cond_t   no_lleno;
-pthread_cond_t   no_vacio;
+pthread_cond_t   not_full;
+pthread_cond_t   not_empty;
 pthread_cond_t   arrancado;
 pthread_cond_t   parado;
 
-const int MAX_PETICIONES = 5;
-const int MAX_SERVICIO   = 5;
+const int MAX_REQUESTS  = 5;
+const int MAX_SERVICE   = 5;
 
-void * receptor ( void * param )
+void * receiver ( void * param )
 {
        request_t p;
-       int i, pos_receptor = 0;
+       int i, pos_receiver = 0;
 
-       for (i=0; i<MAX_PETICIONES; i++)
+       for (i=0; i<MAX_REQUESTS; i++)
        {
-            recibir_request(&p);
-            fprintf(stderr,"receptor: recepción de petición\n");
+            receive_request(&p);
+            fprintf(stderr,"receiver: recepción de petición\n");
 
 	    // lock when not full...
             pthread_mutex_lock(&mutex);
-            while (n_elementos == MAX_BUFFER) {
-                   pthread_cond_wait(&no_lleno, &mutex);
+            while (n_elements == MAX_BUFFER) {
+                   pthread_cond_wait(&not_full, &mutex);
 	    }
 
 	    // inserting element into the buffer
-            buffer[pos_receptor ] = p;
-            pos_receptor = (pos_receptor +1) % MAX_BUFFER;
-            n_elementos++;
+            buffer[pos_receiver ] = p;
+            pos_receiver = (pos_receiver +1) % MAX_BUFFER;
+            n_elements++;
 
 	    // signal not empty...
-            pthread_cond_signal(&no_vacio);
+            pthread_cond_signal(&not_empty);
             pthread_mutex_unlock(&mutex);
        }
 
-       fprintf(stderr,"receptor: finalizando\n");
+       fprintf(stderr,"receiver: finalizando\n");
 
        // signal end
        pthread_mutex_lock(&mutex);
        fin=1;
-       pthread_cond_signal(&no_vacio);
+       pthread_cond_broadcast(&not_empty);
        pthread_mutex_unlock(&mutex);
 
-       fprintf(stderr, "receptor: Finalizado\n");
+       fprintf(stderr, "receiver: Finalizado\n");
        pthread_exit(0);
        return NULL;
 
@@ -98,7 +98,7 @@ void * servicio ( void * param )
       {
 	   // lock when not empty and not ended...
            pthread_mutex_lock(&mutex);
-           while (n_elementos == 0)
+           while (n_elements == 0)
 	   {
                 if (fin==1) {
                      fprintf(stderr,"servicio: finalizando\n");
@@ -107,21 +107,21 @@ void * servicio ( void * param )
                      pthread_exit(0);
                 }
 
-                pthread_cond_wait(&no_vacio, &mutex);
+                pthread_cond_wait(&not_empty, &mutex);
            } // while
 
 	   // removing element from buffer...
            p = buffer[pos_servicio];
            pos_servicio = (pos_servicio + 1) % MAX_BUFFER;
-           n_elementos--;
+           n_elements--;
 
 	   // signal not full...
-           pthread_cond_signal(&no_lleno);
+           pthread_cond_signal(&not_full);
            pthread_mutex_unlock(&mutex);
 
 	   // process and response...
            fprintf(stderr, "servicio: sirviendo posicion %d\n", pos_servicio);
-           responder_request(&p);
+           answer_request(&p);
     }
 
     pthread_exit(0);
@@ -133,17 +133,17 @@ int main ( int argc, char *argv[] )
     struct timeval timenow;
     long t1, t2;
     pthread_t thr;
-    pthread_t ths[MAX_SERVICIO];
+    pthread_t ths[MAX_SERVICE];
 
     // initialize
     pthread_mutex_init(&mutex,NULL);
-    pthread_cond_init(&no_lleno, NULL);
-    pthread_cond_init(&no_vacio, NULL);
+    pthread_cond_init(&not_full, NULL);
+    pthread_cond_init(&not_empty, NULL);
     pthread_cond_init(&arrancado, NULL);
     pthread_cond_init(&parado, NULL);
 
     // create threads
-    for (int i=0;i<MAX_SERVICIO;i++)
+    for (int i=0;i<MAX_SERVICE;i++)
     {
           pthread_create(&ths[i], NULL, servicio, NULL);
 
@@ -160,12 +160,12 @@ int main ( int argc, char *argv[] )
     gettimeofday(&timenow, NULL) ;
     t1 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
-          // receptor...
-          pthread_create(&thr, NULL,receptor, NULL);
+          // receiver...
+          pthread_create(&thr, NULL,receiver, NULL);
 
           // wait thread is started
           pthread_mutex_lock(&mutex) ;
-	  while ( (!fin) || (n_elementos > 0) ) {
+	  while ( (!fin) || (n_elements > 0) ) {
                  pthread_cond_wait(&parado, &mutex) ;
 	  }
           pthread_mutex_unlock(&mutex) ;
@@ -176,18 +176,18 @@ int main ( int argc, char *argv[] )
 
     // finalizar
     pthread_join(thr, NULL);
-    for (int i=0; i<MAX_SERVICIO; i++) {
+    for (int i=0; i<MAX_SERVICE; i++) {
          pthread_join(ths[i], NULL);
     }
 
     pthread_mutex_destroy(&mutex);
-    pthread_cond_destroy(&no_lleno);
-    pthread_cond_destroy(&no_vacio);
+    pthread_cond_destroy(&not_full);
+    pthread_cond_destroy(&not_empty);
     pthread_cond_destroy(&arrancado);
     pthread_cond_destroy(&parado);
 
     // imprimir t2-t1...
-    printf("Tiempo total: %lf\n", (t2-t1)/1000.0);
+    printf("Total time: %lf\n", (t2-t1)/1000.0);
     return 0;
 }
 

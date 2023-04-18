@@ -45,14 +45,14 @@ void * servicio ( void * p )
 
       // process and response
       fprintf(stderr, "Iniciando servicio\n");
-      responder_request(&pet);
+      answer_request(&pet);
 
       fprintf(stderr, "Terminando servicio\n");
       pthread_exit(0);
       return NULL;
 }
 
-void * receptor ( void * param )
+void * receiver ( void * param )
 {
      int i;
      request_t  p;
@@ -62,7 +62,7 @@ void * receptor ( void * param )
      for (i=0; i<MAX_PETICIONES; i++)
      {
 	  // receive request and new thread treat it
-          recibir_request(&p);
+          receive_request(&p);
           pthread_create(&(th_hijo[i]), NULL, servicio, &p);
 
           // wait data is copied
@@ -93,8 +93,8 @@ int main ( int argc, char *argv[] )
     gettimeofday(&timenow, NULL) ;
     t1 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
-    // receptor()
-    pthread_create(&thr, NULL, receptor, NULL);
+    // receiver()
+    pthread_create(&thr, NULL, receiver, NULL);
     pthread_join(thr, NULL);
 
     // t2
@@ -102,7 +102,7 @@ int main ( int argc, char *argv[] )
     t2 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
     // imprimir t2-t1...
-    printf("Tiempo total: %lf\n", (t2-t1)/1000.0);
+    printf("Total time: %lf\n", (t2-t1)/1000.0);
     return 0;
 }
 

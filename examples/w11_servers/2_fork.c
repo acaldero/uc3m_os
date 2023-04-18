@@ -26,26 +26,26 @@
 
 const int MAX_PETICIONES = 5;
 
-void  receptor ( void )
+void  receiver ( void )
 {
     request_t p;
-    int pid, hijos=0;
+    int pid, n_children=0;
 
     for (int i=0; i<MAX_PETICIONES; i++)
     {
-       recibir_request(&p);
+       receive_request(&p);
 
        pid = fork();
-       if (pid<0)  { perror("Error en la creación del hij");}
-       if (pid==0) { responder_request(&p); exit(0); }   /* HIJO */
-       if (pid!=0) { hijos++; }                           /* PADRE */
+       if (pid  < 0) { perror("Error in fork: ");   }
+       if (pid == 0) { answer_request(&p); exit(0); }   /* CHILD */
+       if (pid != 0) { n_children++; }                  /* FATHER */
     }
 
-    fprintf(stderr, "Esperando fin de %d hijos\n", hijos);
-    while (hijos > 0)
+    fprintf(stderr, "Esperando fin de %d n_children\n", n_children);
+    while (n_children > 0)
     {
          pid = waitpid(-1, NULL, WNOHANG);
-         if (pid > 0) { hijos--;  }
+         if (pid > 0) { n_children--;  }
     } ;
 }
 
@@ -58,15 +58,15 @@ int main ( int argc, char *argv[] )
     gettimeofday(&timenow, NULL) ;
     t1 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
-    // receptor...
-    receptor() ;
+    // receiver...
+    receiver() ;
 
     // t2
     gettimeofday(&timenow, NULL) ;
     t2 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
     // imprimir t2-t1...
-    printf("Tiempo: %lf\n", (t2-t1)/1000.0);
+    printf("Total time: %lf\n", (t2-t1)/1000.0);
 
     return 0;
 }

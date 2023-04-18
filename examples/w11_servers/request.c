@@ -24,7 +24,7 @@
 
 static long petid = 0;
 
-void recibir_request (request_t * p) 
+void receive_request (request_t * p) 
 {
    int delay;
    fprintf(stderr, "Recibiendo petición\n");
@@ -37,7 +37,7 @@ void recibir_request (request_t * p)
    fprintf(stderr,"Petición %ld recibida después de %d segundos\n", p->id, delay);
 }
 
-void responder_request (request_t * p) 
+void answer_request (request_t * p) 
 {
   int delay;
   char *mz;

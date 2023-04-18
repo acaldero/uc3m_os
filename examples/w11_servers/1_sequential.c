@@ -22,16 +22,16 @@
 
 #include "request.h"
 
-const int MAX_PETICIONES = 5;  
+const int MAX_REQUESTS = 5;  
 
-void  receptor ( void )
+void  receiver ( void )
 {
     request_t p;
 
-    for (int i=0; i<MAX_PETICIONES; i++)
+    for (int i=0; i<MAX_REQUESTS; i++)
     {
-         recibir_request(&p);
-         responder_request(&p);
+         receive_request(&p);
+         answer_request(&p);
     }
 }
 
@@ -44,15 +44,15 @@ int main ( int argc, char *argv[] )
     gettimeofday(&timenow, NULL) ;
     t1 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
-    // receptor...
-    receptor() ;
+    // receiver...
+    receiver() ;
 
     // t2
     gettimeofday(&timenow, NULL) ;
     t2 = (long)timenow.tv_sec * 1000 + (long)timenow.tv_usec / 1000 ;
 
     // imprimir t2-t1...
-    printf("Tiempo total: %lf\n", (t2-t1)/1000.0);
+    printf("Total time: %lf\n", (t2-t1)/1000.0);
     return 0;
 }
 

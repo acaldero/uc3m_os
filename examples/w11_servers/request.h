@@ -36,13 +36,13 @@
 
        /* Other fields */
 
-       int tipo;
+       int type;
     };
 
     typedef struct request request_t ;
 
-    void recibir_request   ( request_t * p ) ; 
-    void responder_request ( request_t * p ) ;
+    void receive_request  ( request_t * p ) ; 
+    void answer_request   ( request_t * p ) ;
 
 #endif
 
