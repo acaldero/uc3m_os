@@ -69,6 +69,7 @@
       <td>File Systems</td>
       <td><ul>
         <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w12-fs-files.pdf">lesson_w12-fs-files.pdf</a> </li>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w13-fs-directories.pdf">lesson_w13-fs-directories.pdf</a> </li>
         <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w14-fs-filesystem.pdf">lesson_w14-fs-filesystem.pdf</a> </li>
       </ul></td>
   </tr>
