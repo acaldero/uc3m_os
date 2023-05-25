@@ -31,6 +31,7 @@
   <tr><td>4</td>
       <td>Introduction to process management</td>
       <td><ul>
+        <li> <a href="https://acaldero.github.io/uc3m_os/slides/lesson_w4-process.pdf">lesson_w4-process.pdf</a> </li>
       </ul></td>
   </tr>
   <tr><td>5</td>
